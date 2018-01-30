@@ -19,7 +19,6 @@
  *
  * @author         Steeve Andrian Salim
  * @copyright      Copyright (c) 2018, Steeve Andrian Salim
- * @since          Version 2.0.0
  * @filesource
  */
 
