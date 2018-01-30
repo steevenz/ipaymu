@@ -108,7 +108,6 @@ class Ipaymu
     protected function request($path, $params = [], $type = 'GET')
     {
         $apiUrl = 'https://my.ipaymu.com';
-        $path = 'api/' . $path;
 
         $uri = (new Uri($apiUrl))->withPath($path);
         $request = new Curl\Request();
@@ -155,7 +154,7 @@ class Ipaymu
      */
     public function getAccount()
     {
-        if (false !== ($response = $this->request('CekSaldo.php'))) {
+        if (false !== ($response = $this->request('api/CekSaldo.php'))) {
             $account = [
                 'username' => $response['Username'],
                 'balance' => $response['Saldo'],
@@ -179,7 +178,7 @@ class Ipaymu
      */
     public function checkAccountBalance()
     {
-        if (false !== ($response = $this->request('CekSaldo.php'))) {
+        if (false !== ($response = $this->request('api/CekSaldo.php'))) {
             return (int) $response[ 'Saldo' ];
         }
 
@@ -206,7 +205,7 @@ class Ipaymu
             3 => 'CERTIFIED_PREMIUM',
         ];
 
-        if (false !== ($response = $this->request('CekStatus.php', ['user' => $username]))) {
+        if (false !== ($response = $this->request('api/CekStatus.php', ['user' => $username]))) {
             return $statusCodes[ $response[ 'StatusUser' ] ];
         }
 
@@ -234,7 +233,7 @@ class Ipaymu
             3  => 'REFUND',
         ];
 
-        if (false !== ($response = $this->request('CekTransaksi.php', ['id' => $trxId]))) {
+        if (false !== ($response = $this->request('api/CekTransaksi.php', ['id' => $trxId]))) {
 
             $response = [
                 'id'          => $trxId,
@@ -359,6 +358,8 @@ class Ipaymu
                 if(isset($options['paypal'])) {
                     $params['paypal_price'][$index] = $product['price_usd'];
                 }
+
+                $index++;
             }
         }
 
@@ -378,7 +379,7 @@ class Ipaymu
             $params['paypal_email'] = $paypalAccount;
         }
 
-        if (false !== ($response = $this->request('payment.htm'))) {
+        if (false !== ($response = $this->request('payment.htm', $params))) {
             return $response;
         }
 
