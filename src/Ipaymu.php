@@ -31,6 +31,7 @@ namespace Steevenz;
 use O2System\Curl;
 use O2System\Kernel\Http\Message\Uri;
 use O2System\Spl\Traits\Collectors\ConfigCollectorTrait;
+use O2System\Spl\Traits\Collectors\ErrorCollectorTrait;
 
 /**
  * Class Ipaymu
@@ -38,6 +39,7 @@ use O2System\Spl\Traits\Collectors\ConfigCollectorTrait;
  */
 class Ipaymu
 {
+    use ErrorCollectorTrait;
     use ConfigCollectorTrait;
 
     /**
@@ -48,16 +50,6 @@ class Ipaymu
      * @var \O2System\Curl\Response
      */
     protected $response;
-
-    /**
-     * Ipaymu::$errors
-     *
-     * Curl response errors.
-     *
-     * @access  protected
-     * @type    array
-     */
-    protected $errors = [];
 
     // ------------------------------------------------------------------------
 
@@ -401,24 +393,5 @@ class Ipaymu
     public function getResponse()
     {
         return $this->response;
-    }
-
-    // ------------------------------------------------------------------------
-
-    /**
-     * Ipaymu::getErrors
-     *
-     * Get errors request.
-     *
-     * @access  public
-     * @return  array|bool Returns FALSE if there is no errors.
-     */
-    public function getErrors()
-    {
-        if (count($this->errors)) {
-            return $this->errors;
-        }
-
-        return false;
     }
 }
