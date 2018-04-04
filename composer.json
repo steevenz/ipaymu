@@ -1,7 +1,7 @@
 {
   "name": "steevenz/ipaymu",
   "description": "Ipaymu API PHP Class Library",
-  "license": "GNU General Public License v3.0 License",
+  "license": "MIT",
   "type": "php-class",
   "keywords": [
     "ipaymu",
