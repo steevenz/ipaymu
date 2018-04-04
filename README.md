@@ -1,7 +1,7 @@
 # Ipaymu (Payment Gateway Indonesia)
 [![Latest Stable Version](https://poser.pugx.org/steevenz/ipaymu/v/stable)](https://packagist.org/packages/steevenz/ipaymu) [![Total Downloads](https://poser.pugx.org/steevenz/ipaymu/downloads)](https://packagist.org/packages/steevenz/ipaymu) [![Latest Unstable Version](https://poser.pugx.org/steevenz/ipaymu/v/unstable)](https://packagist.org/packages/steevenz/ipaymu) [![License](https://poser.pugx.org/steevenz/ipaymu/license)](https://packagist.org/packages/steevenz/ipaymu)
 
-Ini adalah [Ipaymu][11] API PHP Class, yang berfungsi untuk melakukan request API [Ipaymu][11].
+[Ipaymu][11] API PHP Class Library berfungsi untuk melakukan request API [Ipaymu][11].
 
 Instalasi
 ---------
